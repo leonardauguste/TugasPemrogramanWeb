@@ -6,43 +6,137 @@
   <title>Portofolio Leonard Auguste</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-      transition: background 0.3s, color 0.3s;
+      background: #f9fafb;
+      color: #1f2937;
     }
 
-    header {
+    /* Navbar */
+    nav {
+      background: #1e3a8a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h2 {
+      color: #fff;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #facc15;
+    }
+
+    /* Hero */
+    .hero {
       text-align: center;
-      padding: 30px;
-      background-color: #506180;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
       color: white;
     }
-
-    header img {
-      width: 180px;
+    .hero img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      display: block;
-      margin: 0 auto 15px;
+      border: 4px solid #fff;
+      margin-bottom: 15px;
+      object-fit: cover;
     }
-
-    header h1 {
+    .hero h1 {
       margin: 10px 0 5px;
-      font-size: 28px;
+      font-size: 32px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 0;
     }
 
-    header p {
-      margin: 5px 0;
-    }
-
+    /* Section */
     section {
+      max-width: 1000px;
+      margin: 40px auto;
       padding: 20px;
     }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1e3a8a;
+      border-bottom: 2px solid #1e3a8a;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-    h2 {
-      color: #506180;
+    /* About */
+    .about p {
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Informasi Pribadi */
+    .info {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .info h3 {
+      background: #1e3a8a;
+      color: white;
+      padding: 10px;
+      border-radius: 6px 6px 0 0;
+      margin: -20px -20px 20px -20px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .info-item {
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
+    }
+    .info-item h4 {
+      margin: 0 0 5px;
+      color: #1e3a8a;
+    }
+
+    /* Contact */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+    .contact-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .contact-item h3 {
+      margin-bottom: 10px;
+      color: #2563eb;
     }
 
     /* Jadwal */
@@ -51,151 +145,162 @@
       border-collapse: collapse;
       margin-top: 15px;
     }
-    table, th, td {
-      border: 1px solid #ccc;
-    }
     th, td {
+      border: 1px solid #e5e7eb;
       padding: 10px;
       text-align: center;
     }
-    tr.highlight {
-      background-color: #cfe3ff !important;
+    th {
+      background: #1e3a8a;
+      color: white;
     }
-
-    /* Tombol umum */
-    button {
-      padding: 10px 15px;
-      background-color: #506180;
+    tr:nth-child(even) {
+      background: #f3f4f6;
+    }
+    .highlight-today {
+      background: #fde68a !important;
+      font-weight: bold;
+    }
+    .print-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background: #16a34a;
       color: white;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 8px;
-      margin-top: 10px;
-      transition: background 0.3s;
     }
-    button:hover {
-      background-color: #3a4658;
+    .print-btn:hover {
+      background: #15803d;
     }
-
-    /* Dark mode */
-    .dark-mode {
-      background-color: #1e1e1e;
-      color: #e5e5e5;
-    }
-    .dark-mode header {
-      background-color: #333;
-    }
-    .dark-mode h2 {
-      color: #90caf9;
-    }
-
-    /* Tombol Darkmode */
-    #darkToggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-
-    /* Tombol Scroll Top */
-    #scrollTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: #2563eb;
-      color: white;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background 0.3s;
-    }
-    #scrollTopBtn:hover {
-      background-color: #1e3a8a;
-    }
-
-    /* Print hanya jadwal */
     @media print {
-      body * {
-        visibility: hidden;
+      .print-btn, nav {
+        display: none;
       }
-      #schedule, #schedule * {
-        visibility: visible;
-      }
-      #schedule {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1e3a8a;
+      color: white;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="potfol.jpg" alt="Leonard Auguste">
-    <h1>Leonard Auguste</h1>
-    <p>Email: leonardaugustee@gmail.com | Telp: +6281910082006</p>
-    <p>Instagram: @leonard.auguste</p>
-  </header>
+  <!-- Navbar -->
+  <nav>
+    <h2>Leonard Auguste</h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#info">Info</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#schedule">Jadwal</a></li>
+    </ul>
+  </nav>
 
-  <section id="about">
+  <!-- Hero -->
+  <div class="hero">
+    <img src="potfol.jpg" alt="Foto Profil">
+    <h1>Leonard Auguste</h1>
+    <p>Mahasiswa Ilmu Komputer | Pemrohgraman Web</p>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="about">
     <h2>Tentang Saya</h2>
-    <p>Saya adalah mahasiswa Universitas Sumatera Utara dengan konsentrasi Ilmu Komputer, memiliki minat di bidang seni dan kreativitas akademis, serta beberapa pencapaian yang mendukung pengembangan diri.</p>
+    <p>
+      Saya adalah Ilmu Komputer di Universitas Sumatera Utara dengan minat
+      di bidang pengembangan web, kecerdasan buatan, dan kewirausahaan digital.
+      Berkomitmen untuk terus belajar, berkembang, dan berkarya.
+    </p>
   </section>
 
+  <!-- Informasi Pribadi -->
+  <section id="info" class="info">
+    <h3>Informasi Pribadi</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <h4>Nama</h4>
+        <p>Leonard Auguste</p>
+      </div>
+      <div class="info-item">
+        <h4>NIM</h4>
+        <p>241401078</p>
+      </div>
+      <div class="info-item">
+        <h4>Kom</h4>
+        <p>Kom C</p>
+      </div>
+      <div class="info-item">
+        <h4>Hobi</h4>
+        <p>Menyanyi dan Design Poster</p>
+      </div>
+      <div class="info-item">
+        <h4>Motto Hidup</h4>
+        <p>If I Fail, There's Always Tomorrow</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Kontak</h2>
+    <div class="contact">
+      <div class="contact-item">
+        <h3>WhatsApp</h3>
+        <p>+62 819-1008-2006</p>
+      </div>
+      <div class="contact-item">
+        <h3>Instagram</h3>
+        <p>@leonard.auguste</p>
+      </div>
+      <div class="contact-item">
+        <h3>LinkedIn</h3>
+        <p>Leonard Auguste</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jadwal -->
   <section id="schedule">
     <h2>Jadwal Kuliah</h2>
     <table>
-      <tr>
-        <th>Hari</th>
-        <th>08.00 - 10.00</th>
-        <th>10.00 - 12.00</th>
-        <th>13.00 - 15.00</th>
-      </tr>
-      <tr>
-        <td>Senin</td>
-        <td>-</td><td>-</td><td>-</td>
-      </tr>
-      <tr>
-        <td>Selasa</td>
-        <td>Matematika Diskrit</td>
-        <td>Algoritma</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>Rabu</td>
-        <td>Pemrograman Web</td>
-        <td>-</td>
-        <td>Jaringan Komputer</td>
-      </tr>
-      <tr>
-        <td>Kamis</td>
-        <td>-</td>
-        <td>Basis Data</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>Jumat</td>
-        <td>-</td>
-        <td>Sistem Operasi</td>
-        <td>-</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Jam</th>
+          <th>Mata Kuliah</th>
+          <th>Ruangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Senin</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr><td>Selasa</td><td>08:50 - 10:30</td><td>IELTS Preparation</td><td>D-101</td></tr>
+        <tr><td>Selasa</td><td>10:30 - 13:00</td><td>Pengantar Kewirausahaan</td><td>CHAMPION</td></tr>
+        <tr><td>Selasa</td><td>13:50 - 15:30</td><td>Lab Pemrograman Web</td><td>Lab 3</td></tr>
+        <tr><td>Rabu</td><td>08:00 - 10:30</td><td>Struktur Data</td><td>D-104</td></tr>
+        <tr><td>Rabu</td><td>10:30 - 13:00</td><td>Kecerdasan Buatan</td><td>D-105</td></tr>
+        <tr><td>Rabu</td><td>14:40 - 17:10</td><td>Pemrograman Web</td><td>D-102</td></tr>
+        <tr><td>Kamis</td><td>08:00 - 09:40</td><td>Etika Profesi</td><td>D-104</td></tr>
+        <tr><td>Kamis</td><td>13:00 - 14:40</td><td>Lab Struktur Data</td><td>Lab 2</td></tr>
+        <tr><td>Jumat</td><td>08:00 - 10:30</td><td>Basis Data</td><td>D-101</td></tr>
+        <tr><td>Jumat</td><td>10:30 - 12:10</td><td>Wirausaha Digital</td><td>D-105</td></tr>
+        <tr><td>Jumat</td><td>14:40 - 16:20</td><td>Lab Basis Data</td><td>Lab 3</td></tr>
+      </tbody>
     </table>
-    <button onclick="printSchedule()">🖨️ Cetak Jadwal</button>
+    <button onclick="printSchedule()" class="print-btn">🖨️ Print Jadwal</button>
   </section>
 
-  <!-- Tombol Dark Mode -->
-  <button id="darkToggle">🌙 Dark Mode</button>
+  <!-- Footer -->
+  <footer>
+    © 2025 Leonard Auguste - Portofolio
+  </footer>
 
-  <!-- Tombol Scroll Top -->
-  <button id="scrollTopBtn" title="Kembali ke Atas">⬆️</button>
-
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
