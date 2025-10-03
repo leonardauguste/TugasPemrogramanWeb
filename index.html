@@ -188,6 +188,27 @@
       color: white;
       margin-top: 40px;
     }
+    #scrollTopBtn {
+  display: none; 
+  position: fixed;
+  bottom: 70px;  /* di atas tombol dark mode */
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+#scrollTopBtn:hover {
+  background-color: #1e3a8a;
+}
+
   </style>
 </head>
 <body>
@@ -302,5 +323,7 @@
 
   <!-- Script -->
   <script src="script.js"></script>
+  <button id="scrollTopBtn" title="Kembali ke Atas">⬆️</button>
 </body>
 </html>
+
